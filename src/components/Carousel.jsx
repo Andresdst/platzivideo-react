@@ -1,16 +1,17 @@
-import React from 'react'
-import '../assets/styles/components/Carousel.scss'
+import React from 'react';
+import '../assets/styles/components/Carousel.scss';
 
-const Carousel = ({children}) =>{
-  return(
-  <section className="carousel">
-    <div className="carousel__container">
+const Carousel = ({ children }) => {
+  return (
+    <section className='carousel'>
+      <div className='carousel__container'>
 
-      {children}
-    </div>
-  </section>
+        {children}
+      </div>
+    </section>
 
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousel;
+
