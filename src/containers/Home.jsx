@@ -10,7 +10,7 @@ import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
 const API = 'http://localhost:3000/initialState';
-const App = () => { //se inicializa el state para que luego de llegar los datos renderize
+const Home = () => { //se inicializa el state para que luego de llegar los datos renderize
   // const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
 
   // useEffect(() => {
@@ -62,4 +62,4 @@ const App = () => { //se inicializa el state para que luego de llegar los datos 
   );
 };
 
-export default App;
+export default Home;
