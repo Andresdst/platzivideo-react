@@ -5,6 +5,7 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
+import useInitialState from '../hooks/useInitialState'
 
 import '../assets/styles/App.scss';
 
@@ -23,7 +24,7 @@ const App = () => { //se inicializa el state para que luego de llegar los datos 
       <Header />
       <Searcher />
       {
-        videos.mylist !== undefined && videos.mylist.length > 0 && (
+        videos.mylist.length > 0 && (
           <Categories title='Mi lista'>
             <Carousel>
               <CarouselItem />
