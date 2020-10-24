@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Searcher from '../components/Searcher';
 import Categories from '../components/Categories';
@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
+
 const API = 'http://localhost:3000/initialState';
 const App = () => { //se inicializa el state para que luego de llegar los datos renderize
   // const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
