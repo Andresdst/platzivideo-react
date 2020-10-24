@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 import '../assets/styles/App.scss';
 
-const App = () => {//se inicializa el state para que luego de llegar los datos renderize
+const App = () => { //se inicializa el state para que luego de llegar los datos renderize
   const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
 
   useEffect(() => {
