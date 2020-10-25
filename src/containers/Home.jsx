@@ -1,16 +1,15 @@
 import React from 'react';
-import Header from '../components/Header';
+import { connect } from 'react-redux';
 import Searcher from '../components/Searcher';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
-import useInitialState from '../hooks/useInitialState';
+//import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
 
-const API = 'http://localhost:3000/initialState';
-const Home = () => { //se inicializa el state para que luego de llegar los datos renderize
+//const API = 'http://localhost:3000/initialState';
+const Home = ({ mylist,trends,originals }) => { //se inicializa el state para que luego de llegar los datos renderize
   // const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
 
   // useEffect(() => {
@@ -18,15 +17,15 @@ const Home = () => { //se inicializa el state para que luego de llegar los datos
   //     .then((response) => response.json())
   //     .then((data) => setVideos(data));
   // }, []);
-  const initialState = useInitialState(API);
-  console.log(initialState);
+
+  //const initialState = useInitialState(API);
+  //console.log(initialState);
   return (
     <div className='App'>
 
-      <Header />
       <Searcher />
       {
-        initialState.mylist !== undefined && initialState.mylist.length > 0 && (
+        mylist !== undefined && mylist.length > 0 && (
           <Categories title='Mi lista'>
             <Carousel>
               <CarouselItem />
@@ -38,28 +37,32 @@ const Home = () => { //se inicializa el state para que luego de llegar los datos
 
       <Categories title='Destacados'>
         <Carousel>
-          {initialState.mylist !== undefined &&
-            initialState.trends.map((item) => {
+          {trends !== undefined &&
+            trends.map((item) => {
               return <CarouselItem key={item.id} {...item} />;
-            })
-          }
+            })}
         </Carousel>
       </Categories>
 
       <Categories title='originals'>
         <Carousel>
-          {initialState.mylist !== undefined &&
-            initialState.originals.map((item) => {
+          {originals !== undefined &&
+            originals.map((item) => {
               return <CarouselItem key={item.id} {...item} />;
-            })
-          }
+            })}
         </Carousel>
       </Categories>
 
-      <Footer />
     </div>
 
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    mylist: state.mylist,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+export default connect(/*props*/mapStateToProps, /*actions*/null)(Home);
