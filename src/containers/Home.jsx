@@ -9,7 +9,7 @@ import CarouselItem from '../components/CarouselItem';
 import '../assets/styles/App.scss';
 
 //const API = 'http://localhost:3000/initialState';
-const Home = ({ mylist,trends,originals }) => { //se inicializa el state para que luego de llegar los datos renderize
+const Home = ({ mylist, trends, originals }) => { //se inicializa el state para que luego de llegar los datos renderize
   // const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
 
   // useEffect(() => {
@@ -21,14 +21,14 @@ const Home = ({ mylist,trends,originals }) => { //se inicializa el state para qu
   //const initialState = useInitialState(API);
   //console.log(initialState);
   return (
-    <div className='App'>
+    <>
 
       <Searcher />
       {
-        mylist !== undefined && mylist.length > 0 && (
+        mylist.length > 0 && (
           <Categories title='Mi lista'>
             <Carousel>
-              <CarouselItem />
+              {mylist.map((item) => { return <CarouselItem key={item.id} {...item} />; })}
 
             </Carousel>
           </Categories>
@@ -53,12 +53,13 @@ const Home = ({ mylist,trends,originals }) => { //se inicializa el state para qu
         </Carousel>
       </Categories>
 
-    </div>
+    </>
 
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     mylist: state.mylist,
     trends: state.trends,
