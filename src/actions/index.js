@@ -3,3 +3,7 @@ export const setFavorite = (/*informacion a transmitir*/payload) => ({
   payload,
 });
 
+export const deleteFavorite = (/*informacion a transmitir*/payload) => ({
+  type: 'DELETE_FAVORITE',
+  payload,
+});

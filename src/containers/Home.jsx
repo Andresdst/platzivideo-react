@@ -59,7 +59,6 @@ const Home = ({ mylist, trends, originals }) => { //se inicializa el state para 
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     mylist: state.mylist,
     trends: state.trends,
