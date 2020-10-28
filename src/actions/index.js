@@ -7,3 +7,8 @@ export const deleteFavorite = (/*informacion a transmitir*/payload) => ({
   type: 'DELETE_FAVORITE',
   payload,
 });
+
+export const loginRequest = (/*informacion a transmitir*/payload) => ({
+  type: 'LOGIN_REQUEST',
+  payload,
+});

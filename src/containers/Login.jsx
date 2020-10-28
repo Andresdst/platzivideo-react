@@ -1,23 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loginRequest } from '../actions';
 
 import '../assets/styles/components/Login.scss';
 
-const Login = () => {
+const Login = (props) => {
   const [form, setValues] = useState({ email: '' });
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     setValues({
       ...form,
       // valor [] dinamico, representa cada valor de name del formulario
       [event.target.name]: event.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = event =>{
-    event.preventDefault()
-    console.log(form)
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(form);
+  };
+
+  const handleRequest = (event) => {
+    event.preventDefault();
+    props.loginRequest(form);
+    props.history.push('/'); //para moverte a una ruta de acuerdo al comportamiento en la app
+  };
   return (
     <section className='login'>
       <section className='login__container'>
@@ -37,10 +45,11 @@ const Login = () => {
             placeholder='Contraseña'
             onChange={handleInput}
           />
-          <button className='button'>Iniciar sesión</button>
+          <button className='button' onClick={handleRequest}>Iniciar sesión</button>
           <div className='login__container--remember-me'>
             <label>
-              <input type='checkbox' id='cbox1' value='first_checkbox' />Recuérdame
+              <input type='checkbox' id='cbox1' value='first_checkbox' />
+              Recuérdame
             </label>
             <a href='/'>Olvidé mi contraseña</a>
           </div>
@@ -63,6 +72,11 @@ const Login = () => {
         </p>
       </section>
     </section>
-);
-}
-export default Login;
+  );
+};
+
+const mapDispatchToProps = {
+  loginRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
