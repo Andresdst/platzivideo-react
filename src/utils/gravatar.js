@@ -7,3 +7,5 @@ const gravatar = (email) => {
   const hash = md5(formattEmail, { encoding: 'binary' });
   return `${base}${hash}`;
 };
+
+export default gravatar;
