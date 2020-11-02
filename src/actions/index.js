@@ -22,3 +22,8 @@ export const registerRequest = (/*informacion a transmitir*/payload) => ({
   type: 'REGISTER_REQUEST',
   payload,
 });
+
+export const getVideoSource = (/*informacion a transmitir*/payload) => ({
+  type: 'GET_VIDEO_SOURCE',
+  payload,
+});

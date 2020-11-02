@@ -21,7 +21,7 @@
   justify-content: space-around;
   min-height: 600px;
   padding: 60px 68px 40px;
-  // width: 300px;
+  //width: 300px;
 }
 
 .register__container--form {
@@ -60,24 +60,24 @@
   text-decoration: underline;
 }
 
-.input {
-  background-color: transparent;
-  border-bottom: 2px solid white;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  color: white;
-  font-family: "Muli", sans-serif;
-  font-size: 16px;
-  height: 50px;
-  margin-bottom: 20px;
-  outline: none;
-  padding: 0px 20px;
-}
+// .input {
+//   background-color: transparent;
+//   border-bottom: 2px solid white;
+//   border-left: 0px;
+//   border-right: 0px;
+//   border-top: 0px;
+//   color: white;
+//   font-family: "Muli", sans-serif;
+//   font-size: 16px;
+//   height: 50px;
+//   margin-bottom: 20px;
+//   outline: none;
+//   padding: 0px 20px;
+// }
 
-::placeholder {
-  color: white;
-}
+// ::placeholder {
+//   color: white;
+// }
 
 .button {
   background-color: rgba(255, 255, 255, 0.3);

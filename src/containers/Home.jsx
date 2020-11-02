@@ -4,6 +4,7 @@ import Searcher from '../components/Searcher';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
+import Header from '../components/Header';
 //import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
@@ -22,7 +23,7 @@ const Home = ({ mylist, trends, originals }) => { //se inicializa el state para 
   //console.log(initialState);
   return (
     <>
-
+      <Header />
       <Searcher />
       {
         mylist.length > 0 && (
