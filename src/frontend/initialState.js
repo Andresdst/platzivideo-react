@@ -165,5 +165,5 @@ const initialState = {
 };
 
 module.exports = {
-    initialState
-}
+  initialState,
+};

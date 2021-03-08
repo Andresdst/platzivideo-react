@@ -1,29 +1,30 @@
-const express = require('express')
-import dotenv from 'dotenv' //ya se soporta ambas importaciones
-const webpack = require('webpack')
+import dotenv from 'dotenv';
 
-dotenv.config()
-const {ENV, PORT} = process.env
+const express = require('express'); //ya se soporta ambas importaciones
+const webpack = require('webpack');
 
-const app = express()
+dotenv.config();
+const { ENV, PORT } = process.env;
 
-if(ENV === 'develoment') {
-    console.log('Development Config')
-    //requiriendo dependencias
-    const webpackConfig = require('../../webpack.config')
-    const webpackDevMiddleware = require('webpack-dev-middleware')
-    const webpackHotMiddleware = require('webpack-hot-middleware')
-    //definiendo compilador
-    const compiler = webpack(webpackConfig)
-    const serverConfig = { serverSideRender: true}
+const app = express();
 
-    app.use(webpackDevMiddleware(compiler, serverConfig));
-    app.use(webpackHotMiddleware(compiler));
+if (ENV === 'develoment') {
+  console.log('Development Config');
+  //requiriendo dependencias
+  const webpackConfig = require('../../webpack.config');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  //definiendo compilador
+  const compiler = webpack(webpackConfig);
+  const serverConfig = { serverSideRender: true };
+
+  app.use(webpackDevMiddleware(compiler, serverConfig));
+  app.use(webpackHotMiddleware(compiler));
 
 }
 
-app.get('*',(req,res)=>{
-    res.send(`
+app.get('*', (req, res) => {
+  res.send(`
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,10 +37,10 @@ app.get('*',(req,res)=>{
   <div id="app"></div>
   <script src="assets/app.js" type="text/javascript"></script>
 </body>
-</html>`)
-})
+</html>`);
+});
 
-app.listen(PORT,(err)=>{
-    if(err) console.log(err)
-    else console.log('Server on port 3000')
-})
+app.listen(PORT, (err) => {
+  if (err) console.log(err);
+  else console.log('Server on port 3000');
+});
