@@ -76,3 +76,5 @@ yarn-error.log
 dist/
 
 platzivideo/
+
+src/server/public
