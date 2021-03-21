@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import React from 'react';
-import helmet from 'helmet'
+import helmet from 'helmet';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 import { initialState } from '../frontend/initialState';
@@ -32,8 +32,9 @@ if (ENV === 'develoment') {
   app.use(webpackHotMiddleware(compiler));
 } else {
   app.use(express.static(`${__dirname}/public`));
-  app.use(helmet());
-  app.use(helmet.permittedCrossDomainPolicies());
+  //app.use(helmet());
+  app.use(helmet.dnsPrefetchControl()); app.use(helmet.expectCt()); app.use(helmet.frameguard()); app.use(helmet.hidePoweredBy()); app.use(helmet.hsts()); app.use(helmet.ieNoOpen()); app.use(helmet.noSniff()); app.use(helmet.permittedCrossDomainPolicies()); app.use(helmet.referrerPolicy()); app.use(helmet.xssFilter());
+  //app.use(helmet.permittedCrossDomainPolicies());
   //deshanilitar cabezeras manualmente
   app.disable('x-powered-by');
 }
@@ -79,5 +80,5 @@ app.get('*', RenderApp);
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);
-  else console.log('Server on port 3000');
+  else console.log(`Server on port ${PORT}`);
 });
